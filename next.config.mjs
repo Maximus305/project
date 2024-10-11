@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+export default {
+    async rewrites() {
+      return [
+        {
+          source: '/api/upload',
+          destination: 'https://pdf2llm-d4y3d99yh-maximus305s-projects.vercel.app/api/upload',
+        },
+      ];
+    },
+  };
