@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 
 export default function PDFUploader() {
   const [file, setFile] = useState<File | null>(null);
@@ -41,7 +41,7 @@ export default function PDFUploader() {
 
   return (
     <div>
-      <Input type="file" accept=".pdf" onChange={handleFileChange} />
+      <input type="file" accept=".pdf" onChange={handleFileChange} />
       <Button onClick={handleUpload} disabled={!file}>Upload a PDF</Button>
     </div>
   );
