@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState, ChangeEvent } from 'react';
@@ -8,6 +7,7 @@ import { Button } from "@/components/ui/button";
 interface ConvertedImage {
   image: string;
   page: number;
+  description?: string;
 }
 
 export default function PDFUploader() {
@@ -15,6 +15,7 @@ export default function PDFUploader() {
   const [uploadStatus, setUploadStatus] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [convertedImages, setConvertedImages] = useState<ConvertedImage[]>([]);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -52,6 +53,24 @@ export default function PDFUploader() {
     }
   };
 
+  const analyzeImages = async () => {
+    setIsAnalyzing(true);
+    try {
+      const analyzedImages = await Promise.all(
+        convertedImages.map(async (img) => {
+          const response = await axios.post('/api/analyze-image', { image: img.image });
+          return { ...img, description: response.data.analyzedImage.description };
+        })
+      );
+      setConvertedImages(analyzedImages);
+    } catch (error) {
+      console.error('Error analyzing images:', error);
+      setUploadStatus('Error analyzing images');
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
   return (
     <div>
       <input type="file" accept=".pdf" onChange={handleFileChange} />
@@ -62,10 +81,23 @@ export default function PDFUploader() {
       {convertedImages.length > 0 && (
         <div>
           <h2>Converted Images:</h2>
+          <Button onClick={analyzeImages} disabled={isAnalyzing}>
+            {isAnalyzing ? 'Analyzing...' : 'Analyze Images'}
+          </Button>
           {convertedImages.map((img, index) => (
-            <div key={index}>
+            <div key={index} className="mt-4">
               <h3>Page {img.page}</h3>
-              <img src={`data:image/jpeg;base64,${img.image}`} alt={`Page ${img.page}`} />
+              <img 
+                src={`data:image/jpeg;base64,${img.image}`} 
+                alt={`Page ${img.page}`}
+                className="max-w-full h-auto"
+              />
+              {img.description && (
+                <div className="mt-2 p-4 bg-gray-100 rounded">
+                  <h4 className="font-bold">Image Description:</h4>
+                  <p>{img.description}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
