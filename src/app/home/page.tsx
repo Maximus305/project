@@ -82,7 +82,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button
-                  className={`w-[150px] h-[40px] rounded-[10px] text-white font-poppins bg-black hover:bg-[#2F2F31] ${transitionStyle}`}
+                  className={`w-[150px] h-[40.0px] rounded-[10px] text-white font-poppins bg-black hover:bg-[#2F2F31] ${transitionStyle}`}
                   onClick={handleButtonClick}
                 >
                   Convert new PDF
