@@ -60,7 +60,7 @@ import { NextRequest, NextResponse } from 'next/server';
             content: [
               {
                 type: "text",
-                text: 'convert these images into markdown, reply with "Markdown{how you would see these images into markdown}, for charts or tables just descibe what you see"'
+                text: 'say everything you see in the image but in markdown, including describeing images and charts'
               },
               {
                 type: "image_url",
