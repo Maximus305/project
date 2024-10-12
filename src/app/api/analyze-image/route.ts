@@ -13,17 +13,25 @@ import { NextRequest, NextResponse } from 'next/server';
    }
 
 
-export async function POST(req: NextRequest) {
-  console.log('POST request received at /api/analyze-image');
-
-  let requestBody;
-  try {
-    requestBody = await req.json();
-    console.log('Request body parsed successfully');
-  } catch (error) {
-    console.error('Error parsing request body:', error);
-    return NextResponse.json({ error: 'Invalid JSON in request body' }, { status: 400 });
-  }
+   export async function POST(req: NextRequest) {
+    console.log('POST request received at /api/analyze-image');
+  
+    // Check if the API key is set
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('OpenAI API key is not set');
+      return NextResponse.json({ error: 'OpenAI API key is missing' }, { status: 500 });
+    } else {
+      console.log('OpenAI API key is set');
+    }
+  
+    let requestBody;
+    try {
+      requestBody = await req.json();
+      console.log('Request body parsed successfully');
+    } catch (error) {
+      console.error('Error parsing request body:', error);
+      return NextResponse.json({ error: 'Invalid JSON in request body' }, { status: 400 });
+    }
 
   console.log('Request body:', requestBody);
 
@@ -52,7 +60,7 @@ export async function POST(req: NextRequest) {
             content: [
               {
                 type: "text",
-                text: "What's in this image?"
+                text: 'convert these images into markdown, reply with "Markdown{how you would see these images into markdown}, for charts or tables just descibe what you see"'
               },
               {
                 type: "image_url",
