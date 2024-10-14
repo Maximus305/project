@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import Link from 'next/link';
+
 import './globals.css'; // Import global styles
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
