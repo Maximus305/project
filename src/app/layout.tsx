@@ -1,34 +1,28 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+"use client";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import React from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import './globals.css'; // Import global styles
 
-export const metadata: Metadata = {
-  title: "PDF2LLM",
-  description: "Convert your pdf",
-};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const router = useRouter();
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  // Determine if the current path is the home page
+  const isHomePage = pathname === '/';
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        {/* Add any head elements here, like meta tags or links to stylesheets */}
+      </head>
+      <body>
+        <div>
+          <main className="">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
