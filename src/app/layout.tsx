@@ -1,16 +1,15 @@
 "use client";
 
 import React from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+
 
 import './globals.css'; // Import global styles
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
   
 
   // Determine if the current path is the home page
-  const isHomePage = pathname === '/';
+  
 
   return (
     <html lang="en">
