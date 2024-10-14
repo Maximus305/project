@@ -7,7 +7,7 @@ import './globals.css'; // Import global styles
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const router = useRouter();
+  
 
   // Determine if the current path is the home page
   const isHomePage = pathname === '/';
