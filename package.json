@@ -17,7 +17,6 @@
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "ghostscript4js": "^3.2.3",
     "lucide-react": "^0.451.0",
     "next": "^14.2.15",
     "pdf-lib": "^1.17.1",
