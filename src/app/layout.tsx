@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Add any head elements here, like meta tags or links to stylesheets */}
+        <title>PDF2LLM</title>
       </head>
       <body>
         <div>

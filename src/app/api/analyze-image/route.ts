@@ -60,7 +60,7 @@ import { NextRequest, NextResponse } from 'next/server';
             content: [
               {
                 type: "text",
-                text: 'say everything you see in the image but in markdown, including describeing images and charts'
+                text: 'say everything you see in the image but in markdown, including describeing images and charts dont tell me that its markdown (or include the three grave accents)just show markdown'
               },
               {
                 type: "image_url",
