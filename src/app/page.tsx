@@ -25,7 +25,7 @@ export default function Home() {
       </main>
 
       <footer className="container mx-auto py-6 px-4 text-center">
-        <p>&copy; 2024 PDF2LLM Converter. All rights reserved.</p>
+        <p>&copy; 2025 PDF2LLM Converter. All rights reserved.</p>
       </footer>
       
       <style jsx>{`
