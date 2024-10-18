@@ -132,7 +132,7 @@ export default function PDFAnalyzerDashboard() {
                 className={`w-[200px] h-[40px] rounded-[10px] text-white font-poppins bg-black hover:bg-[#2F2F31] ${transitionStyle}`}
                 onClick={handleButtonClick}
               >
-                Convert your first PDF
+                Convert your first
               </Button>
             </div>
           ) : (
@@ -160,15 +160,15 @@ export default function PDFAnalyzerDashboard() {
                 {pdfFiles.map((pdf) => (
                   <div key={pdf.id} className="relative cursor-pointer" onClick={() => handleProcessing(pdf)}>
                     <div 
-                      className={`w-24 h-24 rounded-lg flex items-center justify-center ${pdf.isProcessing ? 'bg-gray-100' : 'bg-gray-100 hover:bg-gray-200'} ${transitionStyle}`}
+                      className={`w-20 h-20 rounded-lg flex items-center justify-center ${pdf.isProcessing ? 'bg-gray-100' : 'bg-gray-100 hover:bg-gray-200'} ${transitionStyle}`}
                     >
                       {pdf.isProcessing ? (
                         <div className="spinner"></div>
                       ) : (
-                        <FileText size={36} className="text-gray-600" />
+                        <FileText size={32} className="text-gray-600" />
                       )}
                     </div>
-                    <p className="mt-2 text-xs font-medium text-center truncate w-24">{pdf.file.name}</p>
+                    <p className="mt-2 text-xs font-medium text-center truncate w-20">{pdf.file.name}</p>
                   </div>
                 ))}
               </div>
