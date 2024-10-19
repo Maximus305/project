@@ -156,19 +156,19 @@ export default function PDFAnalyzerDashboard() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-2 mb-4">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-1 mb-4">
                 {pdfFiles.map((pdf) => (
                   <div key={pdf.id} className="relative cursor-pointer" onClick={() => handleProcessing(pdf)}>
                     <div 
-                      className={`w-16 h-16 rounded-lg flex items-center justify-center ${pdf.isProcessing ? 'bg-gray-100' : 'bg-gray-100 hover:bg-gray-200'} ${transitionStyle}`}
+                      className={`w-14 h-14 rounded-lg flex items-center justify-center ${pdf.isProcessing ? 'bg-gray-100' : 'bg-gray-100 hover:bg-gray-200'} ${transitionStyle}`}
                     >
                       {pdf.isProcessing ? (
                         <div className="spinner"></div>
                       ) : (
-                        <FileText size={24} className="text-gray-600" />
+                        <FileText size={20} className="text-gray-600" />
                       )}
                     </div>
-                    <p className="mt-1 text-xs font-medium text-center truncate w-16">{pdf.file.name}</p>
+                    <p className="mt-1 text-xs font-medium text-center truncate w-14">{pdf.file.name}</p>
                   </div>
                 ))}
               </div>
