@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 import { auth } from './firebase'; // Adjust the path if necessary
  // Corrected import for signOut
