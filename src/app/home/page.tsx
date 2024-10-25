@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div className="flex h-screen bg-white">
       {/* Sidebar */}
-      <div className="w-[260px] bg-white border-r border-[#E6EDF0] shadow-lg z-10 relative">
+      <div className="w-[240px] bg-white border-r border-[#E6EDF0] shadow-lg z-10 relative">
         {/* Sidebar content */}
         <div className="flex flex-col items-center h-auto pt-[58px]"> 
           <h1 className="font-['Avenir_Next'] text-[#5A6A75] text-2xl font-semibold mb-8 flex items-center">
